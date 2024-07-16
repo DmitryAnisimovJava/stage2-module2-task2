@@ -44,6 +44,6 @@ public class LoginServlet extends HttpServlet {
         return login != null && USERS.getUsers().contains(login);
     }
     private static boolean isRightPassword(String password) {
-        return password != null && (password.isEmpty() || password.chars().allMatch(Character::isWhitespace));
+        return password != null && !password.isEmpty() && !password.chars().allMatch(Character::isWhitespace);
     }
 }
