@@ -13,6 +13,11 @@ public class LogoutServlet extends HttpServlet {
     public static final String URL = "/logout";
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doPost(req, resp);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.removeAttribute(LoginServlet.LOGIN_ATTRIBUTE);
